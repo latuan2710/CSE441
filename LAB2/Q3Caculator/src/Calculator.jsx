@@ -49,22 +49,34 @@ export default function CalculatorScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.result}>{displayValue}</Text>
-      {nums.map((num, index) => (
+      <View style={styles.numberContainer}>
         <TouchableOpacity
-          key={index}
-          onPress={() => handleNumberInput(num)}
-          style={styles.numberButton}>
-          <Text style={styles.buttonText}>{num}</Text>
+          onPress={() => handleNumberInput(0)}
+          style={[
+            styles.numberButton,
+            {flexBasis: '100%', paddingHorizontal: 25},
+          ]}>
+          <Text style={styles.buttonText}>0</Text>
         </TouchableOpacity>
-      ))}
-      {operators.map((item, index) => (
-        <TouchableOpacity
-          key={index}
-          onPress={() => handleOperatorInput(item)}
-          style={styles.operatorButton}>
-          <Text style={styles.buttonText}>{item}</Text>
-        </TouchableOpacity>
-      ))}
+        {nums.map((num, index) => (
+          <TouchableOpacity
+            key={index}
+            onPress={() => handleNumberInput(num)}
+            style={styles.numberButton}>
+            <Text style={styles.buttonText}>{num}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <View style={styles.operatorContainer}>
+        {operators.map((item, index) => (
+          <TouchableOpacity
+            key={index}
+            onPress={() => handleOperatorInput(item)}
+            style={styles.operatorButton}>
+            <Text style={styles.buttonText}>{item}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
       <TouchableOpacity
         onPress={handleEqual}
         style={[styles.operatorButton, styles.equalButton]}>
