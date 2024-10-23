@@ -1,6 +1,6 @@
 import {useContext, useState} from 'react';
 import {View} from 'react-native';
-import {Button, HelperText, Text, TextInput} from 'react-native-paper';
+import {Button, Text, TextInput} from 'react-native-paper';
 import {ResultDialogContext} from '../context/ResultDialogProvider';
 
 export default function Q6_2() {
@@ -18,10 +18,6 @@ export default function Q6_2() {
     setNumber('');
     setResult(result + '');
     setShowResult(true);
-  };
-
-  const hasErrors = () => {
-    return isNaN(+number);
   };
 
   return (

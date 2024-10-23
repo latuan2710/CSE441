@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import { Dialog, Portal, Text } from 'react-native-paper';
-import { ResultDialogContext } from '../context/ResultDialogProvider';
+import {useContext} from 'react';
+import {Dialog, Portal, Text} from 'react-native-paper';
+import {ResultDialogContext} from '../context/ResultDialogProvider';
 
 export default function ResultDialog() {
   const context = useContext(ResultDialogContext);

@@ -11,7 +11,7 @@ export default function App() {
   return (
     <ResultDialogProvider>
       <PaperProvider>
-        <ScrollView style={{padding: 10}}>
+        <ScrollView style={{padding: 10, backgroundColor: '#fff'}}>
           <Q6_1 />
           <Q6_2 />
           <Q6_3 />
