@@ -18,7 +18,7 @@ export default function App() {
     {key: 'ProductList', title: 'Products', focusedIcon: 'folder'},
     {key: 'Product_Add', title: 'Add', focusedIcon: 'folder'},
     {key: 'ProductSearch', title: 'Search', focusedIcon: 'find'},
-    {key: 'Product_Detail', title: 'ProductDetail', focusedIcon: 'calender'},
+    {key: 'Product_Detail', title: 'ProductDetail', focusedIcon: 'calendar'},
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
