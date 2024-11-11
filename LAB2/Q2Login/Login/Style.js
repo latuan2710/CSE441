@@ -1,13 +1,7 @@
 import {DefaultTheme} from '@react-navigation/native';
 import {StyleSheet} from 'react-native';
 
-const AppTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: '#ef506b',
-  },
-};
+
 
 export const Styles = StyleSheet.create({
   container: {
