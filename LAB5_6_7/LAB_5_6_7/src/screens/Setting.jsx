@@ -16,7 +16,7 @@ export default function Setting({navigation}) {
           labelStyle={styles.buttonLabel}
           style={styles.button}
           onPress={handleLogout}>
-          Login
+          Logout
         </Button>
       </View>
     </View>

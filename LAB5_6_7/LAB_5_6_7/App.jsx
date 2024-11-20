@@ -1,9 +1,9 @@
 import {NavigationContainer} from '@react-navigation/native';
-import {StatusBar} from 'react-native';
-import {DefaultTheme, PaperProvider} from 'react-native-paper';
+import {Platform, StatusBar} from 'react-native';
+import {DefaultTheme, PaperProvider, configureFonts} from 'react-native-paper';
 import StackNavigator from './src/navigators/StackNavigator';
 import {MenuProvider} from 'react-native-popup-menu';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 export default function App() {
   const AppTheme = {
@@ -20,8 +20,12 @@ export default function App() {
     <MenuProvider>
       <PaperProvider theme={AppTheme}>
         <NavigationContainer>
-          <SafeAreaView style={{ flex: 1, backgroundColor: AppTheme.colors.background }}>
-            <StatusBar backgroundColor={AppTheme.colors.primary} barStyle="light-content" />
+          <SafeAreaView
+            style={{flex: 1, backgroundColor: AppTheme.colors.background}}>
+            <StatusBar
+              backgroundColor={AppTheme.colors.primary}
+              barStyle="light-content"
+            />
             <StackNavigator />
           </SafeAreaView>
         </NavigationContainer>
