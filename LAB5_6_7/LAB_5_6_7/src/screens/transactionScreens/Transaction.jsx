@@ -77,7 +77,7 @@ export default function Transaction({navigation}) {
         iconColor={theme.colors.text}
         size={30}
         style={[styles.addButton, {backgroundColor: theme.colors.primary}]}
-        onPress={() => navigation.navigate('Customer_Add')}
+        onPress={() => navigation.navigate('Transaction_Add')}
       />
     </View>
   );

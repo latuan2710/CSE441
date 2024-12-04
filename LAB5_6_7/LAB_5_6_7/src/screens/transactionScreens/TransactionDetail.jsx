@@ -1,20 +1,17 @@
 import {useEffect, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {
-  ActivityIndicator,
-  Appbar,
-  Divider,
-  Icon,
-  Text,
-  useTheme,
-} from 'react-native-paper';
-import {getTransactionById} from '../../services/apiServices';
+import {Alert, StyleSheet, View} from 'react-native';
+import {Appbar, Divider, Icon, Text, useTheme} from 'react-native-paper';
 import {
   Menu,
   MenuOption,
   MenuOptions,
   MenuTrigger,
 } from 'react-native-popup-menu';
+import WaitLoading from '../../components/WaitLoading';
+import {
+  deleteTransaction,
+  getTransactionById,
+} from '../../services/apiServices';
 import {formatDate, formatMoney} from '../../services/extraService';
 
 export default function TransactionDetail({navigation, route}) {
@@ -31,14 +28,10 @@ export default function TransactionDetail({navigation, route}) {
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   if (loading) {
-    return (
-      <View>
-        <ActivityIndicator />
-      </View>
-    );
+    return <WaitLoading />;
   }
 
   return (
@@ -57,15 +50,31 @@ export default function TransactionDetail({navigation, route}) {
           <MenuOptions>
             <MenuOption onSelect={() => {}}>
               <Text>
-                <Icon size={20} source={'lead-pencil'} />
-                Edit
+                See more details
               </Text>
             </MenuOption>
-            <MenuOption onSelect={async () => {}}>
-              <Text style={{color: 'red'}}>
-                <Icon size={20} color="red" source={'trash-can'} />
-                Delete
-              </Text>
+            <MenuOption
+              onSelect={() =>
+                Alert.alert(
+                  'Waring',
+                  'Are you sure you want to cancel thistransaction? This will affect the customer transaction information',
+                  [
+                    {
+                      text: 'Delete',
+                      onPress: () => {
+                        deleteTransaction(transaction._id)
+                          .then(() => navigation.navigate('Transaction_List'))
+                          .catch(err => Alert.alert('Error', err.message));
+                      },
+                    },
+                    {
+                      text: 'Cancel',
+                      style: 'cancel',
+                    },
+                  ],
+                )
+              }>
+              <Text style={{color: 'red'}}>Cancel transaction</Text>
             </MenuOption>
           </MenuOptions>
         </Menu>

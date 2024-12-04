@@ -29,9 +29,11 @@ export default function TransactionListItem({
             - {service.name}
           </Text>
         ))}
-        <Text numberOfLines={1} style={styles.customerName}>
-          Customer: {customer.name}
-        </Text>
+        {customer && (
+          <Text numberOfLines={1} style={styles.customerName}>
+            Customer: {customer.name}
+          </Text>
+        )}
       </View>
       <View style={styles.moneyContainer}>
         <Text

@@ -73,11 +73,40 @@ export const getAllCustomer = async () => {
   return res.data;
 };
 
+export const getCustomerById = async id => {
+  const res = await axios.get(
+    `https://kami-backend-5rs0.onrender.com/customers/${id}`,
+  );
+
+  return res.data;
+};
+
 export const addCustomer = async (name, phone) => {
   const headers = await getAuthHeader();
   const res = await axios.post(
     'https://kami-backend-5rs0.onrender.com/customers',
     {name, phone},
+    {headers},
+  );
+
+  return res.data;
+};
+
+export const updateCustomer = async (id, name, phone) => {
+  const headers = await getAuthHeader();
+  const res = await axios.put(
+    `https://kami-backend-5rs0.onrender.com/customers/${id}`,
+    {name, phone},
+    {headers},
+  );
+
+  return res.data;
+};
+
+export const deleteCustomer = async id => {
+  const headers = await getAuthHeader();
+  const res = await axios.delete(
+    `https://kami-backend-5rs0.onrender.com/customers/${id}`,
     {headers},
   );
 
@@ -95,6 +124,36 @@ export const getAllTransaction = async () => {
 export const getTransactionById = async id => {
   const res = await axios.get(
     `https://kami-backend-5rs0.onrender.com/transactions/${id}`,
+  );
+
+  return res.data;
+};
+
+export const addTransaction = async (customerId, services) => {
+  const headers = await getAuthHeader();
+  const res = await axios.post(
+    'https://kami-backend-5rs0.onrender.com/transactions',
+    {customerId, services},
+    {headers},
+  );
+
+  return res.data;
+};
+
+export const deleteTransaction = async id => {
+  const headers = await getAuthHeader();
+
+  const res = await axios.delete(
+    `https://kami-backend-5rs0.onrender.com/transactions/${id}`,
+    {headers},
+  );
+
+  return res.data;
+};
+
+export const getAllUser = async () => {
+  const res = await axios.get(
+    'https://kami-backend-5rs0.onrender.com/users',
   );
 
   return res.data;

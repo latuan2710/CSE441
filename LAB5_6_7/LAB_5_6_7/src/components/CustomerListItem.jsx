@@ -2,11 +2,17 @@ import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Icon, Text, useTheme} from 'react-native-paper';
 import {formatMoney} from '../services/extraService';
 
-export default function CustomerListItem({name, phone, totalMoney, loyalty}) {
+export default function CustomerListItem({
+  name,
+  phone,
+  totalMoney,
+  loyalty,
+  onpress,
+}) {
   const theme = useTheme();
 
   return (
-    <TouchableOpacity style={styles.customerContainer}>
+    <TouchableOpacity style={styles.customerContainer} onPress={onpress}>
       <View style={{flex: 1}}>
         <Text style={styles.customerLabel}>
           Customer: <Text>{name}</Text>
@@ -26,7 +32,7 @@ export default function CustomerListItem({name, phone, totalMoney, loyalty}) {
           flexBasis: 50,
           justifyContent: 'center',
           alignItems: 'center',
-          flexDirection:'column',
+          flexDirection: 'column',
         }}>
         <Icon source={'crown'} size={20} color={theme.colors.primary} />
         <Text

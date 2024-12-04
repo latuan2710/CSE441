@@ -61,6 +61,9 @@ export default function Customer({navigation}) {
                   phone={item.phone}
                   totalMoney={item.totalSpent}
                   loyalty={item.loyalty}
+                  onpress={() =>
+                    navigation.navigate('Customer_Detail', {id: item._id})
+                  }
                 />
               )}
             />
