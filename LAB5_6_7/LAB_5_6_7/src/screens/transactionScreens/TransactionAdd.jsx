@@ -1,7 +1,8 @@
-import {useEffect, useState} from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
-import {Dropdown} from 'react-native-element-dropdown';
-import {Button, Text, useTheme} from 'react-native-paper';
+import { useEffect, useState } from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
+import { Dropdown } from 'react-native-element-dropdown';
+import { Button, Text } from 'react-native-paper';
+import ServiceItemSelector from '../../components/ServiceItemSelector';
 import WaitLoading from '../../components/WaitLoading';
 import {
   addTransaction,
@@ -9,8 +10,7 @@ import {
   getAllService,
   getAllUser,
 } from '../../services/apiServices';
-import ServiceItemSelector from '../../components/ServiceItemSelector';
-import {formatMoney} from '../../services/extraService';
+import { formatMoney } from '../../services/extraService';
 
 export default function TransactionAdd({navigation}) {
   const [loading, setLoading] = useState(true);

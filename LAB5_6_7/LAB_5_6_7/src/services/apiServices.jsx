@@ -152,9 +152,7 @@ export const deleteTransaction = async id => {
 };
 
 export const getAllUser = async () => {
-  const res = await axios.get(
-    'https://kami-backend-5rs0.onrender.com/users',
-  );
+  const res = await axios.get('https://kami-backend-5rs0.onrender.com/users');
 
   return res.data;
 };
